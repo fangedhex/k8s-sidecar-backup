@@ -1,6 +1,5 @@
-FROM fangedhex/baseimage-s6
-RUN apk add --no-cache nodejs yarn
-ADD docker /
+FROM node:lts-alpine
 WORKDIR /app
 ADD . .
 RUN yarn install --frozen-lockfile && yarn build
+CMD [ "node", "." ]
